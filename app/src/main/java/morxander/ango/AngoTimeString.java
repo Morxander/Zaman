@@ -5,9 +5,10 @@ package morxander.ango;
  */
 
 public class AngoTimeString {
-    //TODO one_something won't be helpful in future tense
     public static final String NOW = "Just Now";
     public static final String AGO = "ago";
+    public static final String IN = "In";
+
 
     public static final String MINUTE = "minute";
     public static final String MINUTES = "minutes";
@@ -33,6 +34,4 @@ public class AngoTimeString {
     public static final String YEAR = "year";
     public static final String YEARS = "years";
     public static final String ONE_YEAR= "1 " + YEAR + " " + AGO;
-
-
 }
