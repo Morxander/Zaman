@@ -26,7 +26,14 @@ public class AngoUtil {
         return time;
     }
 
-
+    private void getTimeString(long diff, int unit, String one_thing, String many_things){
+        if(diff < 2*unit) {
+            time = one_thing;
+        }else{
+            int number_of_things = Math.round((diff / unit));
+            time = String.valueOf(number_of_things) + " " + many_things + " " + AngoTimeString.AGO;
+        }
+    }
     private void diffToString(long diff){
         int minute = 60;
         int hour = 3600;
@@ -39,52 +46,22 @@ public class AngoUtil {
             time = AngoTimeString.NOW;
         }else if(diff < hour){
             //MINS
-            if(diff < 2*minute) {
-                time = AngoTimeString.ONE_MINUTE;
-            }else{
-                int mins = Math.round((diff / minute));
-                time = String.valueOf(mins) + " " + AngoTimeString.MINUTES + " " + AngoTimeString.AGO;
-            }
+            getTimeString(diff, minute, AngoTimeString.ONE_MINUTE, AngoTimeString.MINUTES) ;
         }else if(diff < day){
             //HOURS
-            if(diff < 2*hour) {
-                time = AngoTimeString.ONE_HOUR;
-            }else{
-                int hrs = Math.round((diff / hour));
-                time = String.valueOf(hrs) + " " + AngoTimeString.HOURS + " " + AngoTimeString.AGO;
-            }
+            getTimeString(diff, hour, AngoTimeString.ONE_HOUR, AngoTimeString.HOURS) ;
         }else if(diff < week){
             //DAYS
-            if(diff < 2*day) {
-                time = AngoTimeString.ONE_DAY;
-            }else{
-                int days = Math.round((diff / day));
-                time = String.valueOf(days) + " " + AngoTimeString.DAYS + " " + AngoTimeString.AGO;
-            }
+            getTimeString(diff, day, AngoTimeString.ONE_DAY, AngoTimeString.DAYS) ;
         }else if(diff < month){
             //WEEKS
-            if(diff < 2*week) {
-                time = AngoTimeString.ONE_WEEK;
-            }else{
-                int weeks = Math.round((diff / week));
-                time = String.valueOf(weeks) + " " + AngoTimeString.WEEKS + " " + AngoTimeString.AGO;
-            }
+            getTimeString(diff, week, AngoTimeString.ONE_WEEK, AngoTimeString.WEEKS) ;
         }else if(diff < year){
             //MONTHS
-            if(diff < 2*month) {
-                time = AngoTimeString.ONE_MONTH;
-            }else{
-                int months = Math.round((diff / month));
-                time = String.valueOf(months) + " " + AngoTimeString.MONTHS + " " + AngoTimeString.AGO;
-            }
+            getTimeString(diff, month, AngoTimeString.ONE_MONTH, AngoTimeString.MONTHS) ;
         }else{
             //YEARS
-            if(diff < 2*year) {
-                time = AngoTimeString.ONE_YEAR;
-            }else{
-                int years = Math.round((diff / year));
-                time = String.valueOf(years) + " " + AngoTimeString.YEARS + " " + AngoTimeString.AGO;
-            }
+            getTimeString(diff, year, AngoTimeString.ONE_YEAR, AngoTimeString.YEARS);
         }
     }
 }
