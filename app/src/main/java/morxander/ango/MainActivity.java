@@ -12,12 +12,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AngoUtil angoUtil = new AngoUtil(1481573503);
-
-        time = (TextView)findViewById(R.id.time);
-        time.setText(angoUtil.getTime());
+      //  AngoUtil angoUtil = new AngoUtil(1481573503);
+//
+//        time = (TextView)findViewById(R.id.time);
+//        time.setText(angoUtil.getTime());
 
         time2 = (AngoTextView)findViewById(R.id.time2);
-        time2.setTimeStamp(1481357936);
+        time2.setTimeStamp(1481496155);
     }
 }

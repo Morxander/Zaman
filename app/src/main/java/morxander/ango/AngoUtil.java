@@ -2,8 +2,12 @@ package morxander.ango;
 
 import android.util.Log;
 
+import java.sql.Time;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.TimerTask;
+import java.util.Timer;
+
 
 /**
  * Created by morxander on 12/6/16.
@@ -23,10 +27,14 @@ public class AngoUtil {
         units.put("year"  , 31104000);
 
     }
-    public AngoUtil(long timetamp) {
-        long diff = getCurrentTimeStamp() - timetamp;
+    public AngoUtil(long timeStamp) {
+        this.calculateTime(timeStamp);
+        this.startTimer(timeStamp);
+    }
+    public void calculateTime(long timeStamp){
+        long diff = getCurrentTimeStamp() - timeStamp;
         Log.v("current", "Current : " + getCurrentTimeStamp());
-        Log.v("current", "Given : " + timetamp);
+        Log.v("current", "Given : " + timeStamp);
         Log.v("current", "Diff : " + diff);
         diffToString(diff);
     }
@@ -38,6 +46,25 @@ public class AngoUtil {
     public String getTime() {
         return time;
     }
+    public void startTimer(long timestamp){
+        TimerTask tt = new TimerTask() {
+            private long ts;
+            private AngoUtil that;
+            @Override
+            public void run() {
+                System.out.println("In Timer Task");
+                this.that.calculateTime(this.ts);
+            }
+            public TimerTask TimerTask(long ts, AngoUtil that){
+                this.ts = ts;
+                this.that = that;
+                return this;
+            }
+        }.TimerTask(timestamp, this);
+        Timer t = new Timer();
+        t.scheduleAtFixedRate(tt, 0, 60*1000);
+        //TODO two way binding to the text view
+    }
 
     private void getTimeString(long diff, String one_unit, String one_thing, String many_things) {
         int unit = units.get(one_unit);
@@ -45,7 +72,6 @@ public class AngoUtil {
             //FUTURE
             diff = Math.abs(diff);
             if (diff < 2 * unit) {
-                //TODO support words like tomorrow, next week, next month, ...etc
                 time = AngoTimeString.IN_ONE_THING.get(one_unit);
             } else {
                 int number_of_things = Math.round((diff / unit));
@@ -53,7 +79,6 @@ public class AngoUtil {
             }
         } else {
             //PAST
-            //TODO support words like yesterday, last week, last month, ...etc
             if (diff < 2 * unit) {
                 time = AngoTimeString.ONE_THING_AGO.get(one_unit);
             } else {
