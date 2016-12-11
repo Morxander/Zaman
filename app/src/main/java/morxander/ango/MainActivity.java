@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AngoUtil angoUtil = new AngoUtil(1481367657);
+        AngoUtil angoUtil = new AngoUtil(1481419136);
         time = (TextView)findViewById(R.id.time);
         time.setText(angoUtil.getTime());
     }
