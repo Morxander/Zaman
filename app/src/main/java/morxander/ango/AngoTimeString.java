@@ -5,62 +5,32 @@ package morxander.ango;
  */
 
 public class AngoTimeString {
+    //TODO one_something won't be helpful in future tense
+    public static final String NOW = "Just Now";
+    public static final String AGO = "ago";
 
-    private static String now = "Just Now";
-    private String minute = "minute";
-    private String minutes = "minutes";
-    private String ago = "ago";
-    private String one_minute = "1 " + minute + " " + ago;
+    public static final String MINUTE = "minute";
+    public static final String MINUTES = "minutes";
+    public static final String ONE_MINUTE = "1 " + MINUTE + " " + AGO;
 
-    private static AngoTimeString angoTimeString;
+    public static final String HOUR = "hour";
+    public static final String HOURS = "hours";
+    public static final String ONE_HOUR = "1 " + HOUR + " " + AGO;
 
-    private AngoTimeString() {
-    }
+    public static final String DAY = "day";
+    public static final String DAYS = "days";
+    public static final String ONE_DAY= "1 " + DAY + " " + AGO;
 
-    public static AngoTimeString getInstance() {
-        if(angoTimeString == null){
-            angoTimeString = new AngoTimeString();
-        }
-        return angoTimeString;
-    }
+    public static final String WEEK = "week";
+    public static final String WEEKS = "weeks";
+    public static final String ONE_WEEK= "1 " + WEEK + " " + AGO;
 
-    public String getNow() {
-        return now;
-    }
+    public static final String MONTH = "month";
+    public static final String MONTHS = "months";
+    public static final String ONE_MONTH= "1 " + MONTH + " " + AGO;
 
-    public String getMinute() {
-        return minute;
-    }
 
-    public String getMinutes() {
-        return minutes;
-    }
-
-    public String getAgo() {
-        return ago;
-    }
-
-    public String getOne_minute() {
-        return one_minute;
-    }
-
-    public void setNow(String now) {
-        this.now = now;
-    }
-
-    public void setMinute(String minute) {
-        this.minute = minute;
-    }
-
-    public void setMinutes(String minutes) {
-        this.minutes = minutes;
-    }
-
-    public void setAgo(String ago) {
-        this.ago = ago;
-    }
-
-    public void setOne_minute(String one_minute) {
-        this.one_minute = one_minute;
-    }
+    public static final String YEAR = "year";
+    public static final String YEARS = "years";
+    public static final String ONE_YEAR= "1 " + YEAR + " " + AGO;
 }
