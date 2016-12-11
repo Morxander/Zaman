@@ -30,6 +30,7 @@ public class AngoUtil {
         if(diff < 0){
             diff = Math.abs(diff);
             if (diff < 2 * unit) {
+                //TODO support words like tomorrow, next week, next month, ...etc
                 time =  AngoTimeString.IN + "1 " + one_thing;
             } else {
                 int number_of_things = Math.round((diff / unit));

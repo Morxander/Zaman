@@ -5,7 +5,6 @@ package morxander.ango;
  */
 
 public class AngoTimeString {
-    //TODO one_something won't be helpful in future tense
     public static final String NOW = "Just Now";
     public static final String AGO = "ago";
     public static final String IN = "In";
