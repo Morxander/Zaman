@@ -8,6 +8,8 @@ public class AngoTimeString {
     //TODO one_something won't be helpful in future tense
     public static final String NOW = "Just Now";
     public static final String AGO = "ago";
+    public static final String IN = "In";
+
 
     public static final String MINUTE = "minute";
     public static final String MINUTES = "minutes";
