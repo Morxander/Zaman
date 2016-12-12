@@ -1,7 +1,6 @@
 package morxander.ango;
 
 import android.os.Handler;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,24 +27,9 @@ public class TimeWatcher {
             timeWatcher = new TimeWatcher();
             timer = new Timer();
             initializeTimerTask();
+            timer.schedule(timerTask, 1000, 1000);
         }
         return timeWatcher;
-    }
-
-    public void attach(AngoTextView textView) {
-        textViews.add(textView);
-        if (textViews.size() == 1) {
-            timer.schedule(timerTask, 1000, 1000);
-            Log.v("TimeWatcher", "TimeWatcher Started");
-        }
-    }
-
-    public void detached(AngoTextView textView) {
-        textViews.remove(textView);
-        if (textViews.size() == 0) {
-            stopWatcher();
-            Log.v("TimeWatcher", "TimeWatcher Stopped");
-        }
     }
 
     public static void updateTextViews() {
@@ -54,16 +38,9 @@ public class TimeWatcher {
         }
     }
 
-    public void stopWatcher() {
-        timerTask.cancel();
-    }
-
     public static void initializeTimerTask() {
-
         timerTask = new TimerTask() {
             public void run() {
-
-                //use a handler to run a toast that shows the current timestamp
                 handler.post(new Runnable() {
                     public void run() {
                         updateTextViews();
@@ -71,6 +48,16 @@ public class TimeWatcher {
                 });
             }
         };
+    }
+
+    public void attach(AngoTextView textView) {
+        if (!textViews.contains(textView)) {
+            textViews.add(textView);
+        }
+    }
+
+    public void detached(AngoTextView textView) {
+        if (textViews.contains(textView)) textViews.remove(textView);
     }
 
 
