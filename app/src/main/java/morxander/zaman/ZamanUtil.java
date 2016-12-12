@@ -10,7 +10,7 @@ import java.util.HashMap;
  * Created by morxander on 12/6/16.
  */
 
-public class AngoUtil {
+public class ZamanUtil {
 
     public static final HashMap<String, Integer> units;
 
@@ -27,7 +27,7 @@ public class AngoUtil {
 
     String time;
 
-    public AngoUtil(long timeStamp) {
+    public ZamanUtil(long timeStamp) {
         this.calculateTime(timeStamp);
     }
 
@@ -54,18 +54,18 @@ public class AngoUtil {
             //FUTURE
             diff = Math.abs(diff);
             if (diff < 2 * unit) {
-                time = AngoTimeString.IN_ONE_THING.get(one_unit);
+                time = ZamanTimeString.IN_ONE_THING.get(one_unit);
             } else {
                 int number_of_things = Math.round((diff / unit));
-                time = AngoTimeString.IN + " " + String.valueOf(number_of_things) + " " + many_things;
+                time = ZamanTimeString.IN + " " + String.valueOf(number_of_things) + " " + many_things;
             }
         } else {
             //PAST
             if (diff < 2 * unit) {
-                time = AngoTimeString.ONE_THING_AGO.get(one_unit);
+                time = ZamanTimeString.ONE_THING_AGO.get(one_unit);
             } else {
                 int number_of_things = Math.round((diff / unit));
-                time = String.valueOf(number_of_things) + " " + many_things + " " + AngoTimeString.AGO;
+                time = String.valueOf(number_of_things) + " " + many_things + " " + ZamanTimeString.AGO;
             }
         }
     }
@@ -75,28 +75,28 @@ public class AngoUtil {
         if (abs_diff < units.get("minute")) {
             //NOW
             if(diff < 0){
-                time = AngoTimeString.IN_FEW_SECONDS;
+                time = ZamanTimeString.IN_FEW_SECONDS;
             }else{
-                time = AngoTimeString.NOW;
+                time = ZamanTimeString.NOW;
             }
         } else if (abs_diff < units.get("hour")) {
             //MINS
-            getTimeString(diff, "minute", AngoTimeString.MINUTE, AngoTimeString.MINUTES);
+            getTimeString(diff, "minute", ZamanTimeString.MINUTE, ZamanTimeString.MINUTES);
         } else if (abs_diff < units.get("day")) {
             //HOURS
-            getTimeString(diff, "hour", AngoTimeString.HOUR, AngoTimeString.HOURS);
+            getTimeString(diff, "hour", ZamanTimeString.HOUR, ZamanTimeString.HOURS);
         } else if (abs_diff < units.get("week")) {
             //DAYS
-            getTimeString(diff, "day", AngoTimeString.DAY, AngoTimeString.DAYS);
+            getTimeString(diff, "day", ZamanTimeString.DAY, ZamanTimeString.DAYS);
         } else if (abs_diff < units.get("month")) {
             //WEEKS
-            getTimeString(diff, "week", AngoTimeString.WEEK, AngoTimeString.WEEKS);
+            getTimeString(diff, "week", ZamanTimeString.WEEK, ZamanTimeString.WEEKS);
         } else if (abs_diff < units.get("year")) {
             //MONTHS
-            getTimeString(diff, "month", AngoTimeString.MONTH, AngoTimeString.MONTHS);
+            getTimeString(diff, "month", ZamanTimeString.MONTH, ZamanTimeString.MONTHS);
         } else {
             //YEARS
-            getTimeString(diff, "year", AngoTimeString.YEAR, AngoTimeString.YEARS);
+            getTimeString(diff, "year", ZamanTimeString.YEAR, ZamanTimeString.YEARS);
         }
     }
 }

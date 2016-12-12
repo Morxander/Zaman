@@ -10,33 +10,33 @@ import android.widget.TextView;
  * Created by morxander on 12/11/16.
  */
 
-public class AngoTextView extends TextView {
+public class ZamanTextView extends TextView {
 
     long timestamp;
     TimeWatcher timeWatcher = TimeWatcher.getInstance();
-    private AngoUtil angoUtil;
+    private ZamanUtil zamanUtil;
 
-    public AngoTextView(Context context) {
+    public ZamanTextView(Context context) {
         super(context);
     }
 
-    public AngoTextView(Context context, AttributeSet attrs) {
+    public ZamanTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public AngoTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ZamanTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public AngoTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public ZamanTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
     public void setTimeStamp(long timestamp) {
         this.timestamp = timestamp;
-        angoUtil = new AngoUtil(timestamp);
-        setText(angoUtil.getTime());
+        zamanUtil = new ZamanUtil(timestamp);
+        setText(zamanUtil.getTime());
         timeWatcher.attach(this);
     }
 
@@ -47,8 +47,8 @@ public class AngoTextView extends TextView {
     }
 
     public void update() {
-        angoUtil.calculateTime(timestamp);
-        setText(angoUtil.getTime());
+        zamanUtil.calculateTime(timestamp);
+        setText(zamanUtil.getTime());
     }
 
     public long getTimestamp() {

@@ -7,7 +7,7 @@ import java.util.HashMap;
  * Created by morxander on 12/6/16.
  */
 
-public class AngoTimeString {
+public class ZamanTimeString {
     public static final String NOW = "Just Now";
     public static final String IN_FEW_SECONDS = "In a few seconds";
     public static final String AGO = "ago";

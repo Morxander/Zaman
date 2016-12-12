@@ -15,7 +15,7 @@ public class TimeWatcher {
 
     private static final Handler handler = new Handler();
     private static TimeWatcher timeWatcher;
-    private static List<AngoTextView> textViews = new ArrayList<AngoTextView>();
+    private static List<ZamanTextView> textViews = new ArrayList<ZamanTextView>();
     private static Timer timer;
     private static TimerTask timerTask;
 
@@ -33,7 +33,7 @@ public class TimeWatcher {
     }
 
     public static void updateTextViews() {
-        for (AngoTextView textView : textViews) {
+        for (ZamanTextView textView : textViews) {
             textView.update();
         }
     }
@@ -50,13 +50,13 @@ public class TimeWatcher {
         };
     }
 
-    public void attach(AngoTextView textView) {
+    public void attach(ZamanTextView textView) {
         if (!textViews.contains(textView)) {
             textViews.add(textView);
         }
     }
 
-    public void detached(AngoTextView textView) {
+    public void detached(ZamanTextView textView) {
         if (textViews.contains(textView)) textViews.remove(textView);
     }
 
