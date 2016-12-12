@@ -74,7 +74,11 @@ public class AngoUtil {
         long abs_diff = Math.abs(diff);
         if (abs_diff < units.get("minute")) {
             //NOW
-            time = AngoTimeString.NOW;
+            if(diff < 0){
+                time = AngoTimeString.IN_FEW_SECONDS;
+            }else{
+                time = AngoTimeString.NOW;
+            }
         } else if (abs_diff < units.get("hour")) {
             //MINS
             getTimeString(diff, "minute", AngoTimeString.MINUTE, AngoTimeString.MINUTES);

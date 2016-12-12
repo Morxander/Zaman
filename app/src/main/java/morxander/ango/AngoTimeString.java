@@ -9,9 +9,9 @@ import java.util.HashMap;
 
 public class AngoTimeString {
     public static final String NOW = "Just Now";
+    public static final String IN_FEW_SECONDS = "In a few seconds";
     public static final String AGO = "ago";
     public static final String IN = "In";
-
 
     public static final String MINUTE = "minute";
     public static final String MINUTES = "minutes";

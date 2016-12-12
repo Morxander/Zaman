@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         hide = (Button)findViewById(R.id.hide);
 
         time2 = (AngoTextView)findViewById(R.id.time2);
-        time2.setTimeStamp(1481540049);
+        time2.setTimeStamp(1481543182);
 
 
 
