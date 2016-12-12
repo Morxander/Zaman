@@ -4,14 +4,13 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.TextView;
 
 /**
  * Created by morxander on 12/11/16.
  */
 
-public class AngoTextView extends TextView{
+public class AngoTextView extends TextView {
 
     long timestamp;
     TimeWatcher timeWatcher = TimeWatcher.getInstance();
@@ -47,8 +46,7 @@ public class AngoTextView extends TextView{
         timeWatcher.detached(this);
     }
 
-    public void update(){
-        Log.v("Timer", "Update Update Update Update");
+    public void update() {
         angoUtil.calculateTime(timestamp);
         setText(angoUtil.getTime());
     }
