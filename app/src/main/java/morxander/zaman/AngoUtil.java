@@ -1,4 +1,4 @@
-package morxander.ango;
+package morxander.zaman;
 
 import android.util.Log;
 

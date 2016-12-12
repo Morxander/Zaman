@@ -1,4 +1,4 @@
-package morxander.ango;
+package morxander.zaman;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         time2 = (AngoTextView)findViewById(R.id.time2);
-        time2.setTimeStamp(1481543182);
+        time2.setTimeStamp(1481552930);
 
     }
 }

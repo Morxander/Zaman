@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="morxander.ango.MainActivity">
+    tools:context="morxander.zaman.MainActivity">
 
     <TextView
         android:id="@+id/time"
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:text="Hello World!" />
 
-    <morxander.ango.AngoTextView
+    <morxander.zaman.AngoTextView
         android:id="@+id/time2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
