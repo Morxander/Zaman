@@ -13,6 +13,8 @@ import android.widget.TextView;
 public class AngoTextView extends TextView {
 
     long timestamp;
+    TimeWatcher timeWatcher = TimeWatcher.getInstance();
+    private AngoUtil angoUtil;
 
     public AngoTextView(Context context) {
         super(context);
@@ -33,7 +35,19 @@ public class AngoTextView extends TextView {
 
     public void setTimeStamp(long timestamp) {
         this.timestamp = timestamp;
-        AngoUtil angoUtil = new AngoUtil(timestamp);
+        angoUtil = new AngoUtil(timestamp);
+        setText(angoUtil.getTime());
+        timeWatcher.attach(this);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        timeWatcher.detached(this);
+    }
+
+    public void update() {
+        angoUtil.calculateTime(timestamp);
         setText(angoUtil.getTime());
     }
 
