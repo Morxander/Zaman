@@ -13,7 +13,7 @@ The library also provides a `singleton` thread that automatically updates the `T
 Download via Gradle:
 
 ```gradle
-compile ''
+compile 'morxander.zaman:Zaman:1.0.0'
 ```
 
 ### Usage
