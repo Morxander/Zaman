@@ -1,5 +1,5 @@
 # Zaman
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Zaman-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4832) [![GPL](https://img.shields.io/aur/license/yaourt.svg)]()
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Zaman-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4832) [![GPL](https://img.shields.io/aur/license/yaourt.svg)]() [![Maintenance](https://img.shields.io/maintenance/yes/2016.svg)]()
 
 The library provides a custom `TextView` and  `Helper` for Android to convert `timestamp` to time `String`.
 The library also provides a `singleton` thread that automatically updates the `TextView` .
